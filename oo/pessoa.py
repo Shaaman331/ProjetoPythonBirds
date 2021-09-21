@@ -18,19 +18,22 @@ objeto correspondem as formas que os objetos reais interagem
 
 '''
 class Pessoa: #Classe Pessoa
-    def __init__(self, nome = None, idade = 31): # Atributos de instância, objetos (Herança)
+    def __init__(self,*filhos, nome = None, idade = 31): # Atributos de instância, objetos (Herança)
         self.nome = nome # self.nome (Atributo de objetos), idade (variavel
         self.idade= idade # self.idade (Atribulto de objetos), idade (variavel)
+        self.filhos = list(filhos) # Self.filhos(atributo complexo)
         
     def cumprimentar(self): # Método cumprimentar
         return f'Olá {id(self)}'
 
 if __name__ == '__main__':
-    p = Pessoa('Lucca')
-    print(Pessoa.cumprimentar(p))
-    print(id(p))
-    print(p.cumprimentar())
-    print(p.nome) #Atributo de objeto
-    p.nome = 'Tarcisio'
-    print(p.nome) # Atributo de objeto
-    print(p.idade) # Atributo de objeto
+    lucca = Pessoa(nome ='Lucca') # Objeto complexo, filho
+    tarcisio = Pessoa(lucca, nome ="Tarcisio") # Objeto complexo, pai
+    print(Pessoa.cumprimentar(tarcisio))
+    print(id(tarcisio))
+    print(tarcisio.cumprimentar())
+    print(tarcisio.nome) #Atributo de objeto
+    print(tarcisio.idade) #Atributo de onjeto
+    
+    for filho in tarcisio.filhos: # Laço for 
+        print(filho.nome)
