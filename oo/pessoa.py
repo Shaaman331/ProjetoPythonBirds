@@ -17,13 +17,20 @@ objeto correspondem as formas que os objetos reais interagem
 
 
 '''
-class Pessoa:
-    def cumprimentar(self):
+class Pessoa: #Classe Pessoa
+    def __init__(self, nome = None, idade = 31): # Atributos de instância, objetos (Herança)
+        self.nome = nome # self.nome (Atributo de objetos), idade (variavel
+        self.idade= idade # self.idade (Atribulto de objetos), idade (variavel)
+        
+    def cumprimentar(self): # Método cumprimentar
         return f'Olá {id(self)}'
 
 if __name__ == '__main__':
-    p = Pessoa()
+    p = Pessoa('Lucca')
     print(Pessoa.cumprimentar(p))
     print(id(p))
     print(p.cumprimentar())
-
+    print(p.nome) #Atributo de objeto
+    p.nome = 'Tarcisio'
+    print(p.nome) # Atributo de objeto
+    print(p.idade) # Atributo de objeto
