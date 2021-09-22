@@ -95,6 +95,8 @@ recebe a própria classe.
 
 '''
 class Pessoa: #Classe Pessoa
+    olhos = 2 #Atributo de classe
+
     def __init__(self,*filhos, nome = None, idade = 31): # Atributos de instância, objetos (Herança)
         self.nome = nome # self.nome (Atributo de objetos), idade (variavel
         self.idade= idade # self.idade (Atribulto de objetos), idade (variavel)
@@ -123,3 +125,9 @@ tarcisio.olhos = 1
 del tarcisio.olhos # Apagando atributo dinamicamente
 print(tarcisio.__dict__) # Atributo especial dict
 print(lucca.__dict__)
+
+Pessoa.olhos = 3 # Acessando atributos pela classe 
+print(Pessoa.olhos) # Acessando atributos pela classe  
+print(tarcisio.olhos) # Acessando atributos pelo objetos
+print(lucca.olhos) # Acessando atributos pelo objeto
+print(id(Pessoa.olhos), id(tarcisio.olhos), id(lucca.olhos)) # Acessando id de atributos de classe e objetos
