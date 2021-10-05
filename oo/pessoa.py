@@ -104,10 +104,23 @@ class Pessoa: #Classe Pessoa
         
     def cumprimentar(self): # Método cumprimentar
         return f'Olá {id(self)}'
+    
+    @staticmethod #Função atrelada a classe Pessoa
+    def metedo_estatico(): 
+        return 42
+
+    @classmethod #Acessando dados da própia classe
+    def nome_e_atributos_de_classe(cls): 
+        return f'{cls} - olhos {cls.olhos}' #Acessando atributos olhos da classe
+
+class Homem(Pessoa):
+    pass
+
+
 
 if __name__ == '__main__':
-    lucca = Pessoa(nome ='Lucca') # Objeto complexo, filho
-    tarcisio = Pessoa(lucca, nome ="Tarcisio") # Objeto complexo, pai
+    lucca = Homem(nome ='Lucca') # Objeto complexo, filho
+    tarcisio = Homem(lucca, nome ="Tarcisio") # Objeto complexo, pai
     print(Pessoa.cumprimentar(tarcisio))
     print(id(tarcisio))
     print(tarcisio.cumprimentar())
@@ -131,3 +144,10 @@ print(Pessoa.olhos) # Acessando atributos pela classe
 print(tarcisio.olhos) # Acessando atributos pelo objetos
 print(lucca.olhos) # Acessando atributos pelo objeto
 print(id(Pessoa.olhos), id(tarcisio.olhos), id(lucca.olhos)) # Acessando id de atributos de classe e objetos
+print(Pessoa.metedo_estatico(), lucca.metedo_estatico()) # Acessando método estático atraves da classe e objetos
+print(Pessoa.nome_e_atributos_de_classe(), lucca.nome_e_atributos_de_classe()) # Acessando atributos de classe atraves da classe e objetos
+pessoa = Pessoa('Anonimo') #Objeto não pertence a clase pessoa mais sim a classe Homem, herdando as caracteristicas
+print(isinstance(pessoa, Pessoa)) #Pergunta se o objeto é da classe Pessoa
+print(isinstance(pessoa, Homem)) # Função isinstance, pergunta se objeto é de determinado tipo
+print(isinstance(tarcisio, Pessoa)) 
+print(isinstance(tarcisio, Homem))
